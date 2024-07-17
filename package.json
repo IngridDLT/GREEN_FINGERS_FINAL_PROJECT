@@ -1,0 +1,21 @@
+{
+  "name": "green_fingers_final_project",
+  "version": "1.0.0",
+  "description": "Online Shop Store Back-End",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "Ingrid de la Torre",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-validator": "^7.1.0",
+    "mysql2": "^3.10.3",
+    "nodemon": "^3.1.4"
+  }
+}
