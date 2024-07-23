@@ -6,7 +6,7 @@ import Advice from './views/Advice.vue'
 const routes = [
     { path: '/', component: Home },
     { path: '/contact', component: Contact },
-    { path: '/advice', components: Advice }
+    { path: '/advice', component: Advice }
 ]
 
 const router = createRouter({
