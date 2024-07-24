@@ -1,52 +1,91 @@
-<!-- <template>
-    <div class="relative"> -->
-      <!-- Botón del carrito con ícono de Font Awesome -->
-      <!-- <button @click="toggleCart" class="text-green-900 hover:text-green-700 focus:outline-none focus:ring">
-        <i class="fa-solid fa-cart-shopping"></i>
-        <span v-if="cartItems.length" class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
-          {{ cartItems.length }}
-        </span>
-      </button> -->
-  
-      <!-- Ventana del carrito -->
-      <!-- <div v-if="isCartOpen" class="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg overflow-hidden z-50">
-        <div class="p-4">
-          <h3 class="text-lg font-bold mb-2">Tu Carrito</h3>
-          <ul class="space-y-2">
-            <li v-for="(item, index) in cartItems" :key="index" class="flex justify-between items-center border-b pb-2">
-              <span>{{ item.name }}</span>
-              <button @click="removeFromCart(index)" class="text-red-500 hover:text-red-700">
-                <i class="fa-solid fa-trash"></i>
-              </button>
-            </li>
-          </ul>
-          <div v-if="!cartItems.length" class="text-gray-500 text-center">
-            El carrito está vacío
+<template>
+  <div
+    v-if="isOpen"
+    class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-end z-50"
+    @click.self="toggleCart"
+  >
+    <div class="w-80 max-h-[20vh] overflow-y-auto bg-white shadow-lg p-6 relative rounded-xl">
+      <h2 class="text-xl font-bold mb-4">Carrito de Compras</h2>
+
+      <ul v-if="cartItems.length">
+        <li
+          v-for="item in cartItems"
+          :key="item.id"
+          class="flex justify-between items-center mb-4"
+        >
+          <div class="flex items-center">
+            <img :src="`/${item.image}`" alt="Product Image" class="w-12 h-12 mr-4">
+            <div>
+              <h3 class="font-semibold">{{ item.name }}</h3>
+              <p>{{ item.price | currency }} € x {{ item.quantity }}</p>
+            </div>
           </div>
-        </div>
+          <button
+            @click="removeItem(item.id)"
+            class="text-red-600 hover:text-red-800 focus:outline-none"
+            aria-label="Remove from cart"
+          >
+            <i class="fas fa-trash"></i>
+          </button>
+        </li>
+      </ul>
+      
+      <div v-else class="text-center text-gray-500">
+        Tu carrito está vacío
       </div>
+
+      <div class="flex justify-between items-center mt-6 border-t pt-4">
+        <span class="font-bold">Total:</span>
+        <span class="font-bold">{{ total | currency }} €</span>
+      </div>
+
+      <button
+        @click="toggleCart"
+        class="absolute top-4 right-4 text-gray-600 hover:text-gray-800 focus:outline-none"
+        aria-label="Close cart"
+      >
+        <i class="fas fa-times"></i>
+      </button>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    data() {
-      return {
-        isCartOpen: false,
-        cartItems: [], // Aquí almacenaremos los productos añadidos al carrito
-      };
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    cartItems: {
+      type: Array,
+      required: true
     },
-    methods: {
-      toggleCart() {
-        this.isCartOpen = !this.isCartOpen;
-      },
-      addToCart(product) {
-        this.cartItems.push(product);
-      },
-      removeFromCart(index) {
-        this.cartItems.splice(index, 1);
-      },
+    isOpen: {
+      type: Boolean,
+      required: true
+    }
+  },
+  computed: {
+    total() {
+      return this.cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    }
+  },
+  methods: {
+    toggleCart() {
+      this.$emit('toggle-cart');
     },
-  };
-  </script>
-   -->
+    removeItem(productId) {
+      this.$emit('remove-item', productId);
+    }
+  },
+  filters: {
+    currency(value) {
+      return value.toFixed(2);
+    }
+  }
+}
+</script>
+
+<style scoped>
+
+.cart-item:hover {
+  background-color: #f1f1f1;
+}
+</style>
