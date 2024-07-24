@@ -1,9 +1,9 @@
 # Documentación Front-End Green Fingers Project
 
-info sobre como funciona la App (npm run dev) cual es su finalidad, breve descripcion, imagenes del diseño FIGMA  https://www.figma.com/design/IUIuso2TX3K1CEOmiINdkm/Green-Fingers?node-id=0-1&t=Yh7dgxDOH47ZKs2X-1
-
-
 This is the frontend application for the Green Fingers, Gardening Online Store project. It is built with Vue.js and provides a user-friendly interface for customers to buy plants, view gardening information, and get in touch with the store. Additionally, an admin panel is available for managing products.
+
+## Layout 
+FIGMA  https://www.figma.com/design/IUIuso2TX3K1CEOmiINdkm/Green-Fingers?node-id=0-1&t=Yh7dgxDOH47ZKs2X-1
 
 ## Features
 
@@ -34,4 +34,4 @@ This is the frontend application for the Green Fingers, Gardening Online Store p
 - Github
 
 ## Project Structure
-
+<span>![</span><span>Aquí la descripción de la imagen por si no carga</span><span>]</span><span>(</span><span>https://raw.githubusercontent.com/parzibyte/WaterPy/master/assets/ImagenV1.png</span><span>)</span>
