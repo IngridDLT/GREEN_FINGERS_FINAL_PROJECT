@@ -1,5 +1,5 @@
 <template>
-  <nav class="bg-green-300 p-4">
+  <nav class="bg-green-300 p-4 relative z-50">
     <div class="container mx-auto flex justify-between items-center">
       
       <!-- Botón para menú móvil -->
@@ -13,16 +13,25 @@
 
       <!-- Menú de navegación para escritorio -->
       <div class="hidden md:flex md:items-center ml-auto">
-        <router-link to="/" class="mr-4">Home</router-link>
-        <router-link to="/contact" class="mr-4">Contact</router-link>
-        <router-link to="/advice" class="mr-4">Advice</router-link>
+        <router-link to="/" class="mr-4 text-green-900 hover:text-green-700">Home</router-link>
+        <router-link to="/contact" class="mr-4 text-green-900 hover:text-green-700">Contact</router-link>
+        <router-link to="/advice" class="mr-4 text-green-900 hover:text-green-700">Advice</router-link>
       </div>
 
       <!-- Menú de navegación móvil -->
-      <div v-if="isMenuOpen" class="md:hidden absolute top-16 right-0 bg-white shadow-lg rounded mt-2 w-48">
-        <router-link to="/" class="block px-2 py-1 text-gray-800 hover:bg-gray-200">Home</router-link>
-        <router-link to="/contact" class="block px-2 py-1 text-gray-800 hover:bg-gray-200">Contact</router-link>
-        <router-link to="/advice" class="block px-2 py-1 text-gray-800 hover:bg-gray-200">Advice</router-link>
+      <div
+        v-if="isMenuOpen"
+        class="md:hidden absolute top-full right-0 bg-white shadow-lg rounded mt-2 w-48 z-50"
+      >
+        <router-link to="/" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+          Home
+        </router-link>
+        <router-link to="/contact" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+          Contact
+        </router-link>
+        <router-link to="/advice" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+          Advice
+        </router-link>
       </div>
     </div>
   </nav>
@@ -32,13 +41,17 @@
 export default {
   data() {
     return {
-      isMenuOpen: false
+      isMenuOpen: false,
     };
   },
   methods: {
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
-    }
-  }
+    },
+  },
 };
 </script>
+
+<style scoped>
+/* Estilos adicionales si es necesario */
+</style>
