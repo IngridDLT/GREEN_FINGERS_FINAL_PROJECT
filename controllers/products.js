@@ -70,7 +70,7 @@ const updateProduct = (request, response) => {
           response.status(404).send({ msg: "product not found" });
         } else {
           const { name, category, price, image } = request.body;
-          const products = new Products(name, price, description, room);
+          const product = new Products(name, category, price, image);
           product
             .update(id)
             .then((data) => response.status(200).send(product))
