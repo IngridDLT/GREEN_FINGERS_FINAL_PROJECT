@@ -1,4 +1,4 @@
-<<template>
+<template>
   <div class="p-4 relative">
     <!-- Carrito de Compras -->
     <Cart 
@@ -10,7 +10,7 @@
 
     <!-- Botón carrito -->
     <button
-      class="fixed top-4 right-4 z-50 bg-green-500 text-white rounded-full p-2 hover:bg-green-600 focus:outline-none focus:ring focus:ring-green-300"
+      class="fixed top-4 right-4 z-50 bg-green-500 text-white rounded-full p-3 hover:bg-green-600 focus:outline-none focus:ring focus:ring-green-300 shadow-md"
       @click="toggleCart"
     >
       <i class="fas fa-shopping-cart fa-lg"></i>

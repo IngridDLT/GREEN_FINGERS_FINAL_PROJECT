@@ -4,8 +4,8 @@
     class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-end z-50"
     @click.self="toggleCart"
   >
-    <div class="w-80 max-h-[20vh] overflow-y-auto bg-white shadow-lg p-6 relative rounded-xl">
-      <h2 class="text-xl font-bold mb-4">Carrito de Compras</h2>
+    <div class="w-full max-w-xs md:max-w-md h-screen overflow-y-auto bg-white shadow-lg p-6 relative rounded-t-xl md:rounded-xl">
+      <h2 class="text-xl font-bold mb-4 text-center">Carrito de Compras</h2>
 
       <ul v-if="cartItems.length">
         <li
@@ -84,7 +84,6 @@ export default {
 </script>
 
 <style scoped>
-
 .cart-item:hover {
   background-color: #f1f1f1;
 }
