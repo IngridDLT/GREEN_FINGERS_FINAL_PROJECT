@@ -28,12 +28,12 @@ module.exports = class Products {
   //me va a eliminar un registro de mi tabla
   static delete(id) {
     //eliminar el recurso que coincida con el id que me están pasando
-    return db.execute(`DELETE FROM home WHERE products.id = ${id}`)
+    return db.execute(`DELETE FROM products WHERE products.id = ${id}`)
   }
 
   //me va a actualizar un registro de mi tabla
   update(id) {
     //actualizar el recurso que coincida con el id que me están pasando.
-    return db.execute(`UPDATE products SET products.name = '${this.name}',products.category = '${this.category}', products.price = ${this.price}, products.image = '${this.image}' WHERE products.id = ${id} `)
+    return db.execute(`UPDATE products SET products.name = '${this.name}', products.category = '${this.category}', products.price = ${this.price}, products.image = '${this.image}' WHERE products.id = ${id} `)
   }
 };
